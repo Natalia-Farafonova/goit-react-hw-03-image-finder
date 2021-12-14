@@ -1,13 +1,12 @@
 import './App.css';
 import React, { Component } from 'react';
 import reactDom from 'react-dom';
-import pixabayApi from './Components/PixabayApi/PixabayApi';
-import Searchbar from './Components/Searchbar/Searchbar';
-import ImageGallery from './Components/ImageGallery/ImageGallery';
-import Button from './Components/Button/Button';
-import Spinner from './Components/Loader/Loader';
-import Modal from './Components/Modal/Modal';
-import './App.css';
+import pixabayApi from './сomponents/PixabayApi/PixabayApi';
+import Searchbar from './сomponents/Searchbar/Searchbar';
+import ImageGallery from './сomponents/ImageGallery/ImageGallery';
+import Button from './сomponents/Button/Button';
+import Spinner from './сomponents/Loader/Loader';
+import Modal from './сomponents/Modal/Modal';
 
 export default class App extends Component {
   state = {
@@ -57,11 +56,11 @@ export default class App extends Component {
     }));
   };
 
-  FindmodalImg = (id, img, tags) => {
+  findmodalImg = (id, img, tags) => {
     this.setState({ modalImg: { id: id, img: img, tags: tags } });
   };
 
-  LoadBtn = () => {
+  loadBtn = () => {
     this.setState({ page: this.state.page + 1 });
   };
 
@@ -74,9 +73,9 @@ export default class App extends Component {
         <ImageGallery
           query={query}
           toggleModal={this.toggleModal}
-          bigImg={this.FindmodalImg}
+          bigImg={this.findmodalImg}
         />
-        {status === 'resolved' && <Button onClick={this.LoadBtn} />}
+        {status === 'resolved' && <Button onClick={this.loadBtn} />}
         {showModal && (
           <Modal closeModal={this.toggleModal} modalImg={modalImg} />
         )}
